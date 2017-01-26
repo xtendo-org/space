@@ -3,15 +3,18 @@ module SimpleFW.UnixSocket
     , unixSocket
     ) where
 
+import SimpleFW.Import
+
 import Network.Socket
-import System.RawFilePath
+import System.Directory
 
-import qualified Data.ByteString.Char8 as B
-
-unixSocket :: RawFilePath -> IO Socket
+unixSocket :: FilePath -> IO Socket
 unixSocket path = do
     tryRemoveFile path
     s <- socket AF_UNIX Stream defaultProtocol
-    bind s (SockAddrUnix (B.unpack path))
+    bind s (SockAddrUnix path)
     listen s maxListenQueue
     return s
+
+tryRemoveFile :: FilePath -> IO ()
+tryRemoveFile path = catchIOError (removeFile path) (const (return ()))

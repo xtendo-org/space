@@ -21,12 +21,12 @@ import SimpleFW.ModifiedTime
 
 data OpenAt
     = OpenAtPort Warp.Port
-    | OpenAtUnixSocket RawFilePath
+    | OpenAtUnixSocket FilePath
 
 parseOpenAt :: String -> OpenAt
 parseOpenAt s = case readMaybe s :: Maybe Warp.Port of
     Just p  -> OpenAtPort p
-    Nothing -> OpenAtUnixSocket (B.pack s)
+    Nothing -> OpenAtUnixSocket s
 
 instance Show OpenAt where
     show (OpenAtPort port) = "port " ++ show port

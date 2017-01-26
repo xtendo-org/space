@@ -7,7 +7,6 @@ module SimpleFW.Import
     ( module Module
     , Builder
     , ByteString
-    , RawFilePath
     , Text
     ) where
 
@@ -26,12 +25,12 @@ import Control.Monad as Module
 import Control.Exception as Module
 import System.Exit as Module
 import System.IO as Module
+import System.IO.Error as Module
 
 -- extra data types
 
 import Data.ByteString (ByteString)
 import Data.ByteString.Builder (Builder)
 import Data.Text (Text)
-import System.RawFilePath (RawFilePath)
 import Control.Concurrent.STM as Module
 -- import Time.Types as Module
