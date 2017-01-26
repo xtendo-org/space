@@ -36,6 +36,9 @@ resolver: nightly-2017-01-17
 # non-dependency (i.e. a user package), and its test suites and benchmarks
 # will not be run. This is useful for tweaking upstream packages.
 packages:
+- location:
+    git: git@github.com:kinoru/rawfilepath.git
+    commit: 6e31f3ff494ab338632b09c13384e673d181939e
 - '.'
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
