@@ -4,7 +4,7 @@ module SimpleFW.View
     , module Network.Wai
     , Html
     , render
-    , json
+    , jsonResponse
     , jsonCType
     , notFound
     , methodNotAllowed
@@ -18,12 +18,14 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Builder as B
 import Network.HTTP.Types
 import Network.Wai
-    ( Request
+    ( Application
+    , Request
     , Response
     , responseLBS
     , responseBuilder
     , requestMethod
     , requestHeaders
+    , rawPathInfo
     )
 import Lucid (Html, renderBS)
 
@@ -32,8 +34,8 @@ render s h c = responseLBS s (ctype : h) (renderBS c)
   where
     ctype = (hContentType, "text/html; charset=utf-8")
 
-json :: Aeson.ToJSON x => x -> Response
-json = responseBuilder status200 [jsonCType] .
+jsonResponse :: Aeson.ToJSON x => Status -> x -> Response
+jsonResponse status = responseBuilder status [jsonCType] .
     Aeson.fromEncoding . Aeson.toEncoding
 
 -- utility
