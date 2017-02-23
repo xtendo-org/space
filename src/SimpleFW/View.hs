@@ -21,11 +21,12 @@ import Network.Wai
     ( Application
     , Request
     , Response
-    , responseLBS
-    , responseBuilder
-    , requestMethod
-    , requestHeaders
     , rawPathInfo
+    , requestHeaders
+    , requestMethod
+    , responseBuilder
+    , responseLBS
+    , strictRequestBody
     )
 import Lucid (Html, renderBS)
 
