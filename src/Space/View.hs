@@ -1,4 +1,4 @@
-module SimpleFW.View
+module Space.View
     ( ByteString
     , module Network.HTTP.Types
     , module Network.Wai

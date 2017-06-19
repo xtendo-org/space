@@ -1,9 +1,9 @@
-module SimpleFW.UnixSocket
+module Space.UnixSocket
     ( Socket
     , unixSocket
     ) where
 
-import SimpleFW.Import
+import Space.Import
 
 import Network.Socket
 import System.Directory

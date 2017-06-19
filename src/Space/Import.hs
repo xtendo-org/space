@@ -3,7 +3,7 @@
 -- Text, etc.) and the harmless base modules (Control.Monad, System.IO, etc.).
 -- Intended to be imported globally across all modules.
 
-module SimpleFW.Import
+module Space.Import
     ( module Module
     , Builder
     , ByteString

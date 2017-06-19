@@ -1,10 +1,10 @@
-module SimpleFW.Server
+module Space.Server
     ( run
     , OpenAt(..)
     , parseOpenAt
     ) where
 
-import SimpleFW.Import
+import Space.Import
 
 import qualified Data.ByteString.Char8 as B
 
@@ -14,8 +14,8 @@ import Network.HTTP.Types
 import qualified Network.Wai as Wai
 import qualified Network.Wai.Handler.Warp as Warp
 
-import SimpleFW.UnixSocket
-import SimpleFW.ModifiedTime
+import Space.UnixSocket
+import Space.ModifiedTime
 
 -- OpenAt configuration
 

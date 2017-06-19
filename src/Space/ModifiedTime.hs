@@ -1,4 +1,4 @@
-module SimpleFW.ModifiedTime
+module Space.ModifiedTime
     ( Modified(..)
     , EpochTime
     , getMTime
