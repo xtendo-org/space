@@ -18,10 +18,12 @@ library:
   - Space.Server
   - Space.View
   dependencies:
+
   - aeson
   - attoparsec
-  - bytestring
+  - base
   - base64-bytestring
+  - bytestring
   - cryptonite
   - directory
   - http-date
@@ -29,13 +31,15 @@ library:
   - lucid
   - memory
   - network
+  - rawfilepath
   - stm
   - template-haskell
   - text
   - unix
   - wai
   - warp
-  - base >=4.7 && <5
+  - yaml
+
 tests:
   space-test:
     main: Spec.hs
