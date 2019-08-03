@@ -6,8 +6,6 @@ module Space.View
     , render
     , jsonResponse
     , jsonCType
-    , notFound
-    , methodNotAllowed
     , intArg
     ) where
 
@@ -30,10 +28,12 @@ import Network.Wai
     )
 import Lucid (Html, renderBS)
 
+
 render :: Status -> ResponseHeaders -> Html a -> Response
 render s h c = responseLBS s (ctype : h) (renderBS c)
   where
-    ctype = (hContentType, "text/html; charset=utf-8")
+    ctype = (hContentType, "text/html;charset=utf-8")
+
 
 jsonResponse :: Aeson.ToJSON x => Status -> x -> Response
 jsonResponse status = responseBuilder status [jsonCType] .
@@ -41,14 +41,9 @@ jsonResponse status = responseBuilder status [jsonCType] .
 
 -- utility
 
-notFound :: Response
-notFound = responseBuilder status404 [] "Not Found"
-
-methodNotAllowed :: Response
-methodNotAllowed = render status405 [] "Method Not Allowed"
-
 jsonCType :: Header
-jsonCType = (hContentType, "application/json; charset=utf-8")
+jsonCType = (hContentType, "application/json;charset=utf-8")
+
 
 intArg :: Integral int => ByteString -> (int -> IO Response) -> IO Response
 intArg rawArg handler = case parseOnly decimal rawArg of

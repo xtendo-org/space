@@ -15,8 +15,12 @@ library:
   default-extensions:
   - OverloadedStrings
   exposed-modules:
+
+  - Space.ConfLib
   - Space.Server
   - Space.View
+  - Space.Template
+
   dependencies:
 
   - aeson
